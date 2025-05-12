@@ -12,10 +12,15 @@
     "useDefineForClassFields": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": ["vite/client"],
+    "types": ["vite/client", "node"],
     "paths": {
       "@/*": ["src/*"]
-    }
+    },
+    "lib": ["ESNext", "DOM"],
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true
   },
   "include": [
     "src/**/*.ts",

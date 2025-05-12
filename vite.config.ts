@@ -35,6 +35,11 @@ export default defineConfig({
     }),
   ],
   base: '/clone-fc/',
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
   build: {
     minify: 'esbuild',
     chunkSizeWarningLimit: 500,

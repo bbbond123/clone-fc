@@ -2,13 +2,7 @@
 import { ref } from 'vue'
 import CaseCard from '@/components/CaseCard.vue'
 import DropBanner from '@/components/DropBanner.vue'
-
-interface Case {
-  id: string
-  name: string
-  price: number
-  image: string
-}
+import type { Case } from '@/types'
 
 const cases = ref<Case[]>([
   {
@@ -39,9 +33,9 @@ const cases = ref<Case[]>([
       <h1 class="text-3xl font-bold text-white mb-8">CS:GO 开箱模拟器</h1>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <CaseCard
-          v-for="case in cases"
-          :key="case.id"
-          :case="case"
+          v-for="caseItem in cases"
+          :key="caseItem.id"
+          :caseItem="caseItem"
         />
       </div>
     </div>
