@@ -72,7 +72,7 @@ const openCase = async () => {
     const result = await mockOpenCase(props.selectedCase.id)
 
     // Generate spin items with the result at the end
-    const items = generateSpinItems(props.selectedCase.skins, result)
+    const items = generateSpinItems(props.selectedCase.skins || [], result)
     skinItems.value = items
     selectedSkin.value = result
 

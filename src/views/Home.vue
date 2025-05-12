@@ -32,12 +32,8 @@ const cases = ref<Case[]>([
     <div class="container mx-auto px-4 py-8">
       <h1 class="text-3xl font-bold text-white mb-8">CS:GO 开箱模拟器</h1>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <CaseCard
-          v-for="caseItem in cases"
-          :key="caseItem.id"
-          :caseItem="caseItem"
-        />
+        <CaseCard v-for="caseItem in cases" :key="caseItem.id" :caseItem="caseItem" />
       </div>
     </div>
   </div>
-</template> 
+</template>

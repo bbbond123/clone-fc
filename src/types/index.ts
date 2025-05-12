@@ -11,7 +11,7 @@ export interface Case {
   name: string
   price: number
   image?: string
-  skins: Skin[]
+  skins?: Skin[]
 }
 
 export interface User {

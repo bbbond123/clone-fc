@@ -48,7 +48,7 @@ export const mockOpenCase = async (caseId: string): Promise<Skin> => {
         return
       }
       
-      const randomSkin = getRandomSkin(selectedCase.skins)
+      const randomSkin = getRandomSkin(selectedCase.skins || [])
       resolve(randomSkin)
     }, delay)
   })
