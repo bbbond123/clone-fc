@@ -1,9 +1,9 @@
 module.exports = {
   root: true,
-  env: { 
-    browser: true, 
-    node: true, 
-    es2021: true 
+  env: {
+    browser: true,
+    node: true,
+    es2021: true,
   },
   extends: [
     'plugin:vue/vue3-recommended',
@@ -11,13 +11,14 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
   ],
+  parser: 'vue-eslint-parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
     sourceType: 'module',
     ecmaVersion: 2021,
     ecmaFeatures: {
-      jsx: true
-    }
+      jsx: true,
+    },
   },
   plugins: ['vue', '@typescript-eslint', 'import'],
   rules: {
@@ -29,9 +30,14 @@ module.exports = {
     'vue/script-setup-uses-vars': 'error',
     'vue/no-v-html': 'off',
     'vue/require-default-prop': 'off',
-    'vue/max-attributes-per-line': ['error', {
-      singleline: 3,
-      multiline: 1
-    }]
+    'vue/max-attributes-per-line': [
+      'error',
+      {
+        singleline: 3,
+        multiline: 1,
+      },
+    ],
+    'vue/valid-template-root': 'off',
+    'vue/no-multiple-template-root': 'off',
   },
-}; 
+}
