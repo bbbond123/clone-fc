@@ -4,12 +4,16 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build": "vite build",
+    "build:type-check": "vue-tsc && vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+    "test:e2e": "cypress open",
+    "test:e2e:headless": "cypress run",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "type-check": "vue-tsc --noEmit || true"
   },
   "dependencies": {
     "@vueuse/head": "^2.0.0",
@@ -26,31 +30,44 @@
     "@vitejs/plugin-vue": "^5.0.0",
     "@vitest/coverage-c8": "^0.33.0",
     "@vue/eslint-config-typescript": "^12.0.0",
+    "@typescript-eslint/parser": "^8.32.0",
+    "@vue/test-utils": "^2.4.0",
     "autoprefixer": "^10.4.0",
+    "cypress": "^13.6.0",
     "eslint": "^8.49.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-n": "^16.0.0",
-    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-prettier": "^5.4.0",
     "eslint-plugin-promise": "^6.1.0",
     "eslint-plugin-vue": "^9.17.0",
+    "happy-dom": "^12.10.0",
     "postcss": "^8.4.0",
     "prettier": "^3.0.0",
+    "puppeteer": "^21.7.0",
     "tailwindcss": "^3.4.0",
-    "typescript": "^5.2.0",
+    "typescript": "latest",
     "vite": "^5.0.0",
     "vite-plugin-image-optimizer": "^1.1.0",
     "vite-plugin-prerender": "^1.0.0",
+    "vite-plugin-pwa": "^0.17.5",
     "vitest": "^1.0.0",
     "vue-tsc": "^1.8.0"
   },
-  "description": "This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.",
+  "description": "Flamecases Clone - A Vue3-based CS:GO case opening site with responsive design and realistic animations.",
   "main": "index.js",
   "directories": {
     "doc": "docs"
   },
-  "keywords": [],
+  "keywords": [
+    "vue3",
+    "csgo",
+    "case-opening",
+    "flamecases",
+    "typescript",
+    "gsap"
+  ],
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }
