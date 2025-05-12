@@ -2,22 +2,27 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    node: true,
     es2021: true,
   },
-  parserOptions: {
-    ecmaVersion: 12,
-    parser: '@typescript-eslint/parser',
-    sourceType: 'module',
-  },
-  plugins: ['vue', '@typescript-eslint'],
   extends: [
-    'plugin:vue/vue3-recommended', // 支持 Vue 3
-    'plugin:@typescript-eslint/recommended', // 支持 TypeScript
-    'standard',
-    'plugin:prettier/recommended', // 集成 Prettier
+    'eslint:recommended',
+    'plugin:vue/vue3-recommended',
+    'plugin:@typescript-eslint/recommended',
+    '@vue/typescript/recommended',
+    'prettier',
   ],
+  parserOptions: {
+    parser: '@typescript-eslint/parser',
+    ecmaVersion: 'latest', // Specify the ECMAScript version
+    sourceType: 'module',
+    tsconfigRootDir: __dirname,
+    project: ['./tsconfig.json'], // Path to the TypeScript configuration
+    extraFileExtensions: ['.vue'], // Additional file extensions
+    ignorePatterns: ['.eslintrc.cjs'],
+  },
+  plugins: ['no-relative-import-paths', 'vue', '@typescript-eslint', 'prettier', 'unused-imports'],
   rules: {
+    'vue/component-api-style': ['error', ['script-setup']], // Use script setup
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/no-explicit-any': 'warn',
@@ -35,10 +40,4 @@ module.exports = {
     'vue/html-indent': 'off',
     'vue/html-closing-bracket-newline': 'off',
   },
-  overrides: [
-    {
-      files: ['*.vue'],
-      parser: 'vue-eslint-parser', // 使用 vue-eslint-parser 解析 .vue 文件
-    },
-  ],
 }
