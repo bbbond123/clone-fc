@@ -3,7 +3,7 @@ import path from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
-import vitePrerender from 'vite-plugin-prerender'
+// import vitePrerender from 'vite-plugin-prerender'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import { VitePWA } from 'vite-plugin-pwa'
 
@@ -16,11 +16,11 @@ export default defineConfig({
       jpg: { quality: 80 },
       png: { quality: 80 },
     }),
-    vitePrerender({
-      staticDir: path.join(__dirname, 'dist'),
-      routes: ['/', '/case-opening', '/inventory'],
-      renderer: 'puppeteer',
-    }),
+    // vitePrerender({
+    //   staticDir: path.join(__dirname, 'dist'),
+    //   routes: ['/', '/case-opening', '/inventory'],
+    //   renderer: 'puppeteer',
+    // }),
     createHtmlPlugin({
       minify: true,
       inject: {

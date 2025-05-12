@@ -75,7 +75,7 @@
   - Vite (构建工具)
 
 - **计划整合**
-  - 预渲染 (vite-plugin-prerender)
+  - 预渲染 (vite-plugin-prerender) 去掉这个方案，不好
   - PWA (vite-plugin-pwa)
   - i18n (vue-i18n)
   - 测试 (Vitest, Cypress)

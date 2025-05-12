@@ -190,31 +190,6 @@ ChatGPT 提出了整合表格（Grok 驱动 + ChatGPT 增强），我将逐项�
 
 **改进与实施**:
 
-- **Prerender Preparation**:
-
-  - Install `vite-plugin-prerender`:
-    ```bash
-    npm install -D vite-plugin-prerender
-    ```
-  - Configure `vite.config.ts`:
-
-    ```ts
-    import { defineConfig } from "vite";
-    import vue from "@vitejs/plugin-vue";
-    import { VitePrerender } from "vite-plugin-prerender";
-
-    export default defineConfig({
-      plugins: [
-        vue(),
-        VitePrerender({
-          routes: ["/", "/case-opening", "/inventory"],
-          renderer: "puppeteer",
-        }),
-      ],
-      base: "/clone-fc/",
-    });
-    ```
-
 - **Update Roadmap** (`docs/roadmap.md`):
   ```markdown
   ## Phase 3: Advanced SEO
