@@ -12,19 +12,19 @@ const cases = ref<Case[]>([
     id: '1',
     name: 'Dragon Case',
     price: 5.99,
-    image: '/assets/cases/dragon.png',
+    image: '/assets/img/cases-new/dragonfire-case-item.png',
   },
   {
     id: '2',
     name: 'Butterfly Case',
     price: 7.99,
-    image: '/assets/cases/butterfly.png',
+    image: '/assets/img/cases-new/blade-runner-case-item.png',
   },
   {
     id: '3',
     name: 'Neon Case',
     price: 4.99,
-    image: '/assets/cases/neon.png',
+    image: '/assets/img/cases-new/cyberpunk-2021-case-item.png',
   },
 ])
 </script>

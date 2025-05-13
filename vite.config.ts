@@ -12,10 +12,11 @@ import { VitePWA } from 'vite-plugin-pwa'
 export default defineConfig({
   plugins: [
     vue(),
-    ViteImageOptimizer({
-      jpg: { quality: 80 },
-      png: { quality: 80 },
-    }),
+    // Temporarily disable image optimizer due to sharp dependency issues
+    // ViteImageOptimizer({
+    //   jpg: { quality: 80 },
+    //   png: { quality: 80 },
+    // }),
     // vitePrerender({
     //   staticDir: path.join(__dirname, 'dist'),
     //   routes: ['/', '/case-opening', '/inventory'],
@@ -100,13 +101,30 @@ export default defineConfig({
   build: {
     minify: 'esbuild',
     chunkSizeWarningLimit: 500,
+    assetsInlineLimit: 4096, // Files smaller than 4kb will be inlined as base64
     rollupOptions: {
       output: {
         manualChunks: {
           vendor: ['vue', 'vue-router', 'pinia'],
           gsap: ['gsap'],
         },
+        // Ensure asset filenames include hashes
+        assetFileNames: (assetInfo) => {
+          const info = assetInfo.name.split('.');
+          let extType = info[info.length - 1];
+          
+          if (/\.(png|jpe?g|gif|svg|webp|ico)$/i.test(assetInfo.name)) {
+            extType = 'img';
+          } else if (/\.(woff2?|eot|ttf|otf)$/i.test(assetInfo.name)) {
+            extType = 'fonts';
+          } else if (/\.(mp4|webm|ogg|mp3|wav|flac|aac)$/i.test(assetInfo.name)) {
+            extType = 'media';
+          }
+          
+          return `assets/${extType}/[name]-[hash][extname]`;
+        },
       },
     },
   },
+  publicDir: 'public', // This is default but explicitly setting it for clarity
 })
