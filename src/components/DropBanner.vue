@@ -13,9 +13,9 @@ const drops = ref<IDrop[]>([])
 let unsubscribe: () => void
 
 onMounted(() => {
-  unsubscribe = mockRealtimeDrops((newDrops) => {
-    drops.value = [...newDrops, ...drops.value].slice(0, 5) // Limit to 5 items
-  })
+  // unsubscribe = mockRealtimeDrops((newDrops) => {
+  //   drops.value = [...newDrops, ...drops.value].slice(0, 5) // Limit to 5 items
+  // })
 })
 
 onUnmounted(() => unsubscribe())
