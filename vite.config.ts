@@ -95,7 +95,7 @@ export default defineConfig(({ mode }) => ({
       },
     }),
   ].filter(Boolean),
-  base: '/clone-fc/',
+  base: '/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

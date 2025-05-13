@@ -5,6 +5,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        globalBg: '#15172c', // 全局背景色
         primary: '#8792f1', // 蓝色
         accent: '#7349ca', //  紫色
         bgDark: '#1c203c', //  深色背景

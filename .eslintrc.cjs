@@ -1,15 +1,14 @@
 module.exports = {
-  root: true,
   env: {
     browser: true,
-    es2021: true,
+    es2021: true
   },
   extends: [
     'eslint:recommended',
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
     '@vue/typescript/recommended',
-    'prettier',
+    'prettier'
   ],
   parserOptions: {
     parser: '@typescript-eslint/parser',
@@ -18,7 +17,7 @@ module.exports = {
     tsconfigRootDir: __dirname,
     project: ['./tsconfig.json'], // Path to the TypeScript configuration
     extraFileExtensions: ['.vue'], // Additional file extensions
-    ignorePatterns: ['.eslintrc.cjs'],
+    ignorePatterns: ['.eslintrc.cjs']
   },
   plugins: ['no-relative-import-paths', 'vue', '@typescript-eslint', 'prettier', 'unused-imports'],
   rules: {
@@ -38,6 +37,6 @@ module.exports = {
     'vue/first-attribute-linebreak': 'off',
     'vue/attributes-order': 'off',
     'vue/html-indent': 'off',
-    'vue/html-closing-bracket-newline': 'off',
-  },
+    'vue/html-closing-bracket-newline': 'off'
+  }
 }

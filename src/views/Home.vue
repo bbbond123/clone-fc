@@ -30,7 +30,7 @@ const cases = ref<Case[]>([
 </script>
 
 <template>
-  <div class="min-h-screen bg-bgDark">
+  <div data-id="bbbb">
     <DropBanner />
     <div class="container mx-auto px-4 py-8">
       <h1 class="text-3xl font-bold text-white mb-8">{{ t('home.title') }}</h1>

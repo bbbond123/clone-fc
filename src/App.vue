@@ -2,6 +2,7 @@
 import { useI18n } from 'vue-i18n'
 import { useHead } from '@vueuse/head'
 import { computed } from 'vue'
+import Nav from '@/views/Nav.vue'
 
 const { locale, t } = useI18n()
 const metaDescription = computed(() =>
@@ -25,8 +26,8 @@ useHead({
 
 <template>
   <div class="min-h-screen bg-bgDark">
-    <nav class="bg-bg-dark shadow-md">
-      <div class="container mx-auto px-4">
+    <Nav>
+      <!-- <div class="container mx-auto px-4">
         <div class="flex justify-between items-center h-16">
           <router-link
             to="/"
@@ -55,8 +56,8 @@ useHead({
             </button>
           </div>
         </div>
-      </div>
-    </nav>
+      </div> -->
+    </Nav>
     <router-view />
   </div>
 </template>
