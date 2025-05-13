@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import CaseCard from '@/components/CaseCard.vue'
 import DropBanner from '@/components/DropBanner.vue'
 import type { Case } from '@/types'
+
+const { t } = useI18n()
 
 const cases = ref<Case[]>([
   {
@@ -30,7 +33,7 @@ const cases = ref<Case[]>([
   <div class="min-h-screen bg-bgDark">
     <DropBanner />
     <div class="container mx-auto px-4 py-8">
-      <h1 class="text-3xl font-bold text-white mb-8">CS:GO 开箱模拟器</h1>
+      <h1 class="text-3xl font-bold text-white mb-8">{{ t('home.title') }}</h1>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <CaseCard v-for="caseItem in cases" :key="caseItem.id" :caseItem="caseItem" />
       </div>
