@@ -6,12 +6,15 @@ import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
 // import vitePrerender from 'vite-plugin-prerender'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import { VitePWA } from 'vite-plugin-pwa'
+import VueDevTools from 'vite-plugin-vue-devtools'
 
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [
     vue(),
+    // Only enable Vue DevTools in development mode
+    mode === 'development' && VueDevTools(),
     // Temporarily disable image optimizer due to sharp dependency issues
     // ViteImageOptimizer({
     //   jpg: { quality: 80 },
@@ -91,7 +94,7 @@ export default defineConfig({
         ],
       },
     }),
-  ],
+  ].filter(Boolean),
   base: '/clone-fc/',
   resolve: {
     alias: {
@@ -127,4 +130,4 @@ export default defineConfig({
     },
   },
   publicDir: 'public', // This is default but explicitly setting it for clarity
-})
+}))

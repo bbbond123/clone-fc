@@ -1,0 +1,23 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: Enforce pnpm as the package manager, consider development vs. production environments, and restrict solutions to macOS environment 
+type: Always
+---
+Always use `pnpm install` for installing dependencies in this frontend project. Do not use `npm install`, `yarn install`, `npm run`, or `npx`. Use `pnpm add <package-name>` for adding packages and `pnpm run <script>` for running scripts. For executing binaries, use `pnpm exec <command>` (e.g., `pnpm exec tsc`). Ensure all dependency-related commands use `pnpm` to maintain consistency with the project's `pnpm-lock.yaml`.
+
+Always consider the development and production environments when performing actions:
+- **Development Environment**:
+  - Install development tools (e.g., `vite`, `eslint`, `typescript`) as `devDependencies` using `pnpm add -D <package-name>` (e.g., `pnpm add -D vite`).
+  - Suggest scripts optimized for development, such as `pnpm run dev` for hot-reloading with tools like Vite or Webpack.
+  - Use environment variables prefixed with `VITE_` (or framework-specific conventions) for development, loaded via `.env.development` or equivalent.
+- **Production Environment**:
+  - Install runtime dependencies (e.g., `react`, `axios`) as `dependencies` using `pnpm add <package-name>` (e.g., `pnpm add react`).
+  - Suggest scripts optimized for production, such as `pnpm run build` for creating optimized bundles and `pnpm run start` for serving production builds.
+  - Use environment variables loaded via `.env.production` or equivalent, ensuring sensitive data is secured and not exposed in client-side code.
+- When configuring or suggesting environment variables, ensure they are environment-specific (e.g., `VITE_API_URL=http://localhost:3000` for development, `VITE_API_URL=https://api.example.com` for production).
+- When writing or modifying scripts in `package.json`, ensure they respect the environment (e.g., `"dev": "vite"`, `"build": "vite build"`, `"start": "node server.js"`).
+- When generating code or configurations, check for environment-specific requirements (e.g., development debugging tools vs. production minification).
